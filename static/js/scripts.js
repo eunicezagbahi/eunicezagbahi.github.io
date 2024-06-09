@@ -1,8 +1,16 @@
 document.getElementById('booking-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
 
+    // Basic validation example
+    if (!date || !time) {
+        alert('Please fill out all required fields.');
+        event.preventDefault();
+        return;
+    }
+
+    // Proceed with form submission
     const formData = new FormData(event.target);
-
     const data = {
         name: formData.get('name'),
         contact: formData.get('contact'),
@@ -16,4 +24,3 @@ document.getElementById('booking-form').addEventListener('submit', function(even
 
     alert('Your appointment has been booked successfully!');
 });
-
